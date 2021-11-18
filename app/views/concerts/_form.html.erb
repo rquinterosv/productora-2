@@ -1,0 +1,32 @@
+<%= form_with(model: concert) do |form| %>
+  <% if concert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(concert.errors.count, "error") %> prohibited this concert from being saved:</h2>
+
+      <ul>
+        <% concert.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :group_id %>
+    <%= form.select :group_id, @groups %>
+  </div>
+
+  <div class="field">
+    <%= form.label :concert %>
+    <%= form.text_field :concert %>
+  </div>
+
+  <div class="field">
+    <%= form.label :assistant %>
+    <%= form.number_field :assistant %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
