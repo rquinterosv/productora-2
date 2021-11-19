@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Groups</h1>
+<h1>Grupos de música</h1>
 
-<table class="container"> 
+<table class="container">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Member</th>
-      <th>Foundation</th>
-      <th>Kind</th>
+      <th>Nombre</th>
+      <th>Integrantes</th>
+      <th>Inicio Banda</th>
+      <th>Categoria</th>
+      <th>Conciertos</th>
+      <th>Total Fans</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,14 +22,23 @@
         <td><%= group.member %></td>
         <td><%= group.foundation %></td>
         <td><%= group.kind %></td>
+        <td><%  group.concerts.each do |concert| %>
+          <ul>
+            <li><%= concert.concert %></li>
+          </ul>
+        <%end%>
+        </td>
+        
         <td><%= link_to 'Show', group %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
         <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      
+
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Group', new_group_path %>
+<%= link_to 'Nuevo Grupo', new_group_path %>

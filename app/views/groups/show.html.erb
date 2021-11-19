@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,20 +6,27 @@
   <%= @group.name %>
 </p>
 
-<p>
-  <strong>Member:</strong>
-  <%= @group.member %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Conciertos</th>
+      <th>Ultimo Concierto</th>
+      <th>Total Asistentes</th>
+      <th>Maximo tiempo</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Foundation:</strong>
-  <%= @group.foundation %>
-</p>
+  <tbody>
+    <% @concerts.each do |concert| %>
+      <tr>
+        <td><%#= concert.titulo %></td>
+        <td><%#= concert.lanzamiento %></td>
+        <td><%= concert.group.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @group.kind %>
-</p>
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to 'Ver subpeliculas', category_movies_path(@category.id)%>
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
